@@ -48,8 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AAD_Project\" />
+    <Folder Include="AAD_Project\media\" />
+    <Folder Include="AAD_Project\media\employees\" />
+    <Folder Include="AAD_Project\media\products\" />
     <Folder Include="AAD_Project\System\" />
     <Folder Include="AAD_Project\System\migrations\" />
+    <Folder Include="AAD_Project\System\static\" />
+    <Folder Include="AAD_Project\System\static\css\" />
     <Folder Include="AAD_Project\System\templates\" />
     <Folder Include="AAD_Project\System\templates\System\" />
   </ItemGroup>
