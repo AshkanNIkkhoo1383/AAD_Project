@@ -1,0 +1,45 @@
+<!-- templates/purchase_invoice.html -->
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فاکتور خرید</title>
+</head>
+<body>
+    <h2>فاکتور خرید</h2>
+
+    <p><strong>شناسه خرید:</strong> {{ purchase.cp_id }}</p>
+    <p><strong>تاریخ خرید:</strong> {{ purchase.purchase_date }}</p>
+
+    <table border="1" cellspacing="0" cellpadding="6">
+        <thead>
+            <tr>
+                <th>کالا</th>
+                <th>تعداد</th>
+                <th>قیمت واحد</th>
+                <th>جمع ردیف</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in purchase.items.all %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.get_total_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align:right;"><strong>مجموع فاکتور:</strong></td>
+                <td><strong>{{ purchase.total_amount }}</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <p style="margin-top:16px;">
+        <a href="{% url 'multi_purchase_create' %}">ثبت خرید جدید</a>
+    </p>
+</body>
+</html>

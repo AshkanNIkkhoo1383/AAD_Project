@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>موجودی انبار</title>
+    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+</head>
+<body>
+
+    <section class="wrapper">
+        <!-- عنوان جدول -->
+        <main class="row title">
+            <ul>
+                <li>کالا</li>
+                <li>قیمت واحد</li>
+                <li>تعداد موجودی</li>
+                <li>نوع کالا</li>
+                <li>آخرین بروزرسانی</li>
+            </ul>
+        </main>
+
+        <!-- ردیف‌ها -->
+        {% for item in inventories %}
+        <article class="row fadeIn product-row">
+            <ul>
+                <li>
+                    {% if item.product.photo %}
+                    <a href="{% url 'product_detail' item.product.product_id %}"> <img src="{{ item.product.photo.url }}" alt="{{ item.product.name }}" class="product-photo"> </a>
+                    {% endif %}
+                    <a href="{% url 'product_detail' item.product.product_id %}">{{ item.product.name }}</a>
+                </li>
+                <li>{{ item.product.price }} تومان</li>
+                <li>{{ item.quantity }}</li>
+                <li>{{ item.product.get_product_type_display }}</li>
+                <li>{{ item.updated_at|date:"Y-m-d H:i" }}</li>
+            </ul>
+            <ul class="more-content">
+                <li>
+                    موجودی کل: {{ item.quantity|floatformat:0 }} × {{ item.product.price }} =
+                    {{ item.quantity|mul:item.product.price }} تومان
+                </li>
+            </ul>
+        </article>
+        {% empty %}
+        <p>هیچ کالایی در انبار ثبت نشده است.</p>
+        {% endfor %}
+    </section>
+
+</body>
+</html>

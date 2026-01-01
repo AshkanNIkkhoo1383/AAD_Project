@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "AAD_Project2", "AAD_Project2.pyproj", "{6541C832-515D-4667-BD2E-A47AFFC5122B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "media", "media", "{B0699A45-9D76-462A-8D9E-1232B19DD8DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6541C832-515D-4667-BD2E-A47AFFC5122B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6541C832-515D-4667-BD2E-A47AFFC5122B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6541C832-515D-4667-BD2E-A47AFFC5122B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6541C832-515D-4667-BD2E-A47AFFC5122B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B830F256-4BCF-4AB0-B1B3-035D925AFAE5}
+	EndGlobalSection
+EndGlobal

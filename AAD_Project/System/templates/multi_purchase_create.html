@@ -1,0 +1,72 @@
+<!-- templates/multi_purchase_create.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت خرید چندکالایی</title>
+    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+</head>
+<body>
+    <section class="wrapper">
+        <main class="row title">
+            <ul>
+                <li>آیدی کالا</li>
+                <li>تعداد</li>
+                <li>ردیف</li>
+            </ul>
+        </main>
+
+        <form method="post" id="purchase-form" action="{% url 'multi_purchase_create' %}">
+            {% csrf_token %}
+            {{ formset.management_form }}
+
+            <div id="forms">
+                {% for form in formset %}
+                <article class="row fadeIn form-row">
+                    <ul>
+                        <li>{{ form.product_id }}</li>
+                        <li>{{ form.quantity }}</li>
+                        <li><span class="small">ردیف {{ forloop.counter }}</span></li>
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div style="text-align:center; margin-top:20px;">
+                <button type="button" id="add-form" class="lf--submit">افزودن کالا</button>
+                <button type="submit" class="lf--submit">ثبت خرید</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+    const addBtn = document.getElementById("add-form");
+    const formsDiv = document.getElementById("forms");
+    const totalForms = document.getElementById("id_form-TOTAL_FORMS");
+
+    addBtn.addEventListener("click", function() {
+        const currentCount = parseInt(totalForms.value);
+        const firstForm = formsDiv.querySelector(".form-row");
+        const newForm = firstForm.cloneNode(true);
+
+        // Clear inputs and update indexes if needed
+        newForm.querySelectorAll("input").forEach(input => {
+            input.value = "";
+            // Optional: update id/name like form-<index>-field if using default naming
+            const name = input.getAttribute("name");
+            if (name) input.setAttribute("name", name.replace(/\d+/, currentCount));
+            const id = input.getAttribute("id");
+            if (id) input.setAttribute("id", id.replace(/\d+/, currentCount));
+        });
+
+        // Update row label
+        const label = newForm.querySelector(".small");
+        if (label) label.textContent = `ردیف ${currentCount + 1}`;
+
+        formsDiv.appendChild(newForm);
+        totalForms.value = currentCount + 1;
+    });
+    </script>
+</body>
+</html>

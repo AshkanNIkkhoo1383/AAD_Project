@@ -30,8 +30,21 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AAD_Project\system1\admin.py" />
+    <Compile Include="AAD_Project\system1\apps.py" />
+    <Compile Include="AAD_Project\system1\migrations\__init__.py" />
+    <Compile Include="AAD_Project\system1\models.py" />
+    <Compile Include="AAD_Project\system1\tests.py" />
+    <Compile Include="AAD_Project\system1\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AAD_Project\system1\views.py" />
+    <Compile Include="AAD_Project\system1\__init__.py" />
     <Compile Include="AAD_Project\System\admin.py" />
     <Compile Include="AAD_Project\System\apps.py" />
+    <Compile Include="AAD_Project\System\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="AAD_Project\System\migrations\__init__.py" />
     <Compile Include="AAD_Project\System\models.py" />
     <Compile Include="AAD_Project\System\tests.py" />
@@ -51,6 +64,10 @@
     <Folder Include="AAD_Project\media\" />
     <Folder Include="AAD_Project\media\employees\" />
     <Folder Include="AAD_Project\media\products\" />
+    <Folder Include="AAD_Project\system1\" />
+    <Folder Include="AAD_Project\system1\migrations\" />
+    <Folder Include="AAD_Project\system1\templates\" />
+    <Folder Include="AAD_Project\system1\templates\system1\" />
     <Folder Include="AAD_Project\System\" />
     <Folder Include="AAD_Project\System\migrations\" />
     <Folder Include="AAD_Project\System\static\" />
@@ -59,6 +76,16 @@
     <Folder Include="AAD_Project\System\templates\System\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AAD_Project\system1\templates\system1\index.html" />
+    <Content Include="AAD_Project\System\static\css\inventory.css" />
+    <Content Include="AAD_Project\System\static\css\inventory.scss" />
+    <Content Include="AAD_Project\System\static\css\login.css" />
+    <Content Include="AAD_Project\System\static\css\login.scss" />
+    <Content Include="AAD_Project\System\templates\inventory_list.html" />
+    <Content Include="AAD_Project\System\templates\login.html" />
+    <Content Include="AAD_Project\System\templates\multi_purchase_create.html" />
+    <Content Include="AAD_Project\System\templates\product_detail.html" />
+    <Content Include="AAD_Project\System\templates\purchase_invoice.html" />
     <Content Include="AAD_Project\System\templates\System\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
