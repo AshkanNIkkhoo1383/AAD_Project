@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>گزارش سود</title>
+    <link rel="stylesheet" href="{% static 'css/index2.css' %}">
+</head>
+<body>
+    <svg>
+        <filter id="glow" y="-25%" height="150%">
+            <feComponentTransfer result="border">
+                <feFuncA type="table" tableValues="0 1 0"></feFuncA>
+            </feComponentTransfer>
+            <feGaussianBlur stdDeviation="15" result="blur"></feGaussianBlur>
+            <feTurbulence type="fractalNoise" baseFrequency="1.73"></feTurbulence>
+            <feDisplacementMap in="blur" scale="50" xChannelSelector="R"></feDisplacementMap>
+            <feBlend in="border"></feBlend>
+        </filter>
+    </svg>
+
+    <section>
+        <h2>گزارش سود مغازه</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">محاسبه</button>
+        </form>
+    </section>
+
+    {% if profit %}
+    <section>
+        <h2>نتایج از {{ start }} تا {{ end }}</h2>
+        <p>مجموع پرداختی‌ها: {{ total_income }} تومان</p>
+        <p>سود (۲۵٪): {{ profit }} تومان</p>
+        <ul>
+            {% for debt in debts %}
+            <li>{{ debt.creditor.name }} - {{ debt.amount }} تومان</li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+</body>
+</html>

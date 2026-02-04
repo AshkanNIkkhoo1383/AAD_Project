@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>گزارش حقوق کارمندان</title>
+    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- فرم ورودی -->
+        <div class="title">
+            <ul>
+                <li colspan="7">
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="start_date">تاریخ شروع:</label>
+                        <input type="date" name="start_date" required>
+
+                        <label for="end_date">تاریخ پایان:</label>
+                        <input type="date" name="end_date" required>
+
+                        <label for="hourly_rate">دستمزد ساعتی (تومان):</label>
+                        <input type="number" step="0.01" name="hourly_rate" required>
+
+                        <button type="submit">محاسبه حقوق</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <!-- عنوان ستون‌ها -->
+        {% if report %}
+        <div class="title">
+            <ul>
+                <li>نام کارمند</li>
+                <li>ساعات کار</li>
+                <li>حقوق (تومان)</li>
+            </ul>
+        </div>
+
+        <!-- لیست حقوق -->
+        {% for emp, data in report.items %}
+        <div class="row {% if data.salary > 0 %}nfl{% else %}nhl{% endif %}">
+            <ul>
+                <li><a href="#">{{ emp.first_name }} {{ emp.last_name }}</a></li>
+                <li>{{ data.hours|floatformat:2 }}</li>
+                <li>{{ data.salary }}</li>
+            </ul>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

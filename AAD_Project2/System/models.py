@@ -11,7 +11,7 @@ class Person(models.Model):
     # جنسیت با انتخاب‌های مشخص
     GENDER_CHOICES = [('M', 'مرد'),('F', 'زن'),]
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name="جنسیت")
-    phone_number = models.IntegerField(max_length=12,validators=[MinLengthValidator(12),MaxLengthValidator(12)],verbose_name="شماره تلفن",) 
+    phone_number = models.IntegerField(verbose_name="شماره تلفن",) 
     #position = models.CharField(max_length=50, verbose_name="سمت شخص") 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -87,7 +87,8 @@ class Credit(models.Model):
         return f"نسیه مشتری {self.customer} - مجموع بدهی: {self.total_debt} ({status})"
 class Creditor(models.Model):
     creditor_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=100, verbose_name="نام طلبکار")
+    name = models.CharField(max_length=100, verbose_name="نام طلبکار") 
+    photo = models.ImageField(upload_to='creditor/', verbose_name="عکس", blank=True, null=True)
     creditor_type_choices = [
         ('PERSON', 'فرد'),
         ('COMPANY', 'شرکت'),
@@ -153,7 +154,7 @@ class CustomUser(AbstractUser):
         ("storemanager", "مدیر فروشگاه"),
         ("employees", "کارمند"),
     ]
-    position = models.CharField(max_length=50,choices=POSITION_CHOICES,default="employees",verbose_name="سمت شخص",editable=False)
+    position = models.CharField(max_length=50,choices=POSITION_CHOICES,default="employees",verbose_name="سمت شخص")
     def __str__(self):
         return f"{self.username} ({self.get_position_display()})"
 class StoreManagerProfile(models.Model):

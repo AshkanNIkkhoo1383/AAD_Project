@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت حضور و خروج</title>
+    <link rel="stylesheet" href="{% static 'css/attendance.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>ثبت حضور / خروج کارمند</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="employee_id">شناسه کارمند (PK):</label>
+            <input type="text" id="employee_id" name="employee_id" placeholder="مثال: 4f9c-98ab-..." required>
+
+            <div class="btn-group">
+                <button type="submit" name="action" value="check_in" class="btn btn-in">ثبت ورود</button>
+                <button type="submit" name="action" value="check_out" class="btn btn-out">ثبت خروج</button>
+            </div>
+        </form>
+
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

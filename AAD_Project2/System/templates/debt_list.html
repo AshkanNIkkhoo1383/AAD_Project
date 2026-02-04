@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<h1>لیست بدهی‌ها</h1>
+{% for debt in debts %}
+<div class="blog-card {% cycle '' 'alt' %}">
+    <div class="meta">
+        <div class="photo" style="background-image: url({{ debt.creditor.photo.url }})"></div>
+        <ul class="details">
+            <li class="author">{{ debt.creditor.name }}</li>
+            <li class="date">{{ debt.due_date }}</li>
+            <li class="tags">
+                <ul>
+                    <li>{{ debt.creditor.get_creditor_type_display }}</li>
+                    <li>{{ debt.creditor.phone_number }}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="description">
+        <h1>مبلغ بدهی: {{ debt.amount }} تومان</h1>
+        <h2>وضعیت: {% if debt.is_paid %}پرداخت شده{% else %}بدهی معوق{% endif %}</h2>
+        <p class="read-more">
+            <a href="{% url 'system:debt_update' debt.pk %}">تغییر وضعیت</a>
+        </p>
+    </div>
+</div>
+{% endfor %}

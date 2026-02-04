@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>تأیید حضور کارمندان</title>
+    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+</head>
+<body>
+
+    <section class="wrapper">
+        <!-- عنوان جدول -->
+        <main class="row title">
+            <ul>
+                <li>کارمند</li>
+                <li>تاریخ</li>
+                <li>ساعت ورود</li>
+                <li>ساعت خروج</li>
+                <li>تأیید مدیر</li>
+            </ul>
+        </main>
+
+        <form method="post">
+            {% csrf_token %}
+            {% for item in attendances %}
+            <article class="row fadeIn">
+                <ul>
+                    <li>{{ item.employee }}</li>
+                    <li>{{ item.date }}</li>
+                    <li>{{ item.check_in }}</li>
+                    <li>{{ item.check_out }}</li>
+                    <li>
+                        <input type="checkbox" name="approve" value="{{ item.attendance_id }}">
+                    </li>
+                </ul>
+            </article>
+            {% empty %}
+            <p>هیچ رکورد حضوری تایید نشده برای امروز وجود ندارد.</p>
+            {% endfor %}
+            <button type="submit" class="lf--submit">ثبت تأیید</button>
+        </form>
+    </section>
+
+</body>
+</html>

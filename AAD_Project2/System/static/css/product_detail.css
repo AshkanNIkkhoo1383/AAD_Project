@@ -1,0 +1,66 @@
+body {
+    font-family: "Tahoma", sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+    direction: rtl;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.product-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.product-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.product-info {
+    flex: 1;
+}
+
+    .product-info h2 {
+        margin-top: 0;
+        color: #2c3e50;
+    }
+
+    .product-info p {
+        font-size: 16px;
+        margin: 8px 0;
+        color: #555;
+    }
+
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .back-link a {
+        text-decoration: none;
+        color: #2980b9;
+        font-weight: bold;
+    }
+
+        .back-link a:hover {
+            color: #1a5276;
+        }

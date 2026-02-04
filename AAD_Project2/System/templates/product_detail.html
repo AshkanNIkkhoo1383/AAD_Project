@@ -3,44 +3,34 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>{{ product.name }}</title>
-    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+    <title>جزئیات کالا</title>
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
 </head>
 <body>
 
     <section class="wrapper">
-        <!-- عنوان صفحه -->
-        <main class="row title">
-            <ul>
-                <li>کالا</li>
-                <li>قیمت</li>
-                <li>نوع</li>
-                <li>تصویر</li>
-                <li>عملیات</li>
-            </ul>
-        </main>
+        <h1>جزئیات کالا</h1>
 
-        <!-- اطلاعات کالا -->
-        <article class="row fadeIn product-row {% if product.product_type == 'ACCESSORY' %}mlb{% elif product.product_type == 'WRITING' %}nfl{% elif product.product_type == 'PAPER' %}nhl{% elif product.product_type == 'STORAGE' %}pga{% else %}row{% endif %}">
-            <ul>
-                <li>{{ product.name }}</li>
-                <li>{{ product.price }} تومان</li>
-                <li>{{ product.get_product_type_display }}</li>
-                <li>
-                    {% if product.photo %}
-                    <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="product-photo">
-                    {% else %}
-                    <span class="small">بدون تصویر</span>
-                    {% endif %}
-                </li>
-                <li>
-                    <a href="{% url 'inventory_list' %}" class="small">بازگشت</a>
-                </li>
-            </ul>
-            <ul class="more-content">
-                <li>شناسه کالا: {{ product.product_id }}</li>
-            </ul>
-        </article>
+        <div class="product-card">
+            <!-- عکس کالا -->
+            {% if product.photo %}
+            <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="product-photo">
+            {% else %}
+            <img src="{% static 'images/no-image.png' %}" alt="بدون عکس" class="product-photo">
+            {% endif %}
+
+            <!-- اطلاعات کالا -->
+            <div class="product-info">
+                <h2>{{ product.name }}</h2>
+                <p><strong>قیمت:</strong> {{ product.price }} تومان</p>
+                <p><strong>نوع کالا:</strong> {{ product.get_product_type_display }}</p>
+            </div>
+        </div>
+
+        <!-- دکمه بازگشت -->
+        <div class="back-link">
+            <a href="{% url 'system:inventory_list' %}">بازگشت به موجودی انبار</a>
+        </div>
     </section>
 
 </body>

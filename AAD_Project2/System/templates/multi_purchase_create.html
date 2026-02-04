@@ -17,7 +17,7 @@
             </ul>
         </main>
 
-        <form method="post" id="purchase-form" action="{% url 'multi_purchase_create' %}">
+        <form method="post" id="purchase-form" action="{% url 'system:multi_purchase_create' %}">
             {% csrf_token %}
             {{ formset.management_form }}
 

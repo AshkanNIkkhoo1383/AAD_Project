@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>داشبورد مدیر فروشگاه</title>
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+<body>
+    <article>
+        <section class="sectionWrapper">
+            <section id="_boxes">
+                <ul>
+                    <li>
+                        <figure>
+                            <h2>لیست بدهی‌ها</h2>
+                            <figcaption>مشاهده و مدیریت بدهی‌های ثبت‌شده برای مشتریان.</figcaption>
+                            <a href="{% url 'system:debt_list' %}">
+                                <em>مشاهده بدهی‌ها</em>
+                                <i>&#10095;&#10095;</i>
+                            </a>
+                        </figure>
+                        <svg stroke="#3F9F47" stroke-width="5" viewBox="0 0 108 108"><path d="..." /></svg>
+                    </li>
+                    <li>
+                        <figure>
+                            <h2>گزارش حقوق</h2>
+                            <figcaption>بررسی حقوق پرداخت‌شده به کارکنان در بازه‌های زمانی مختلف.</figcaption>
+                            <a href="{% url 'system:salary_report' %}">
+                                <em>مشاهده گزارش</em>
+                                <i>&#10095;&#10095;</i>
+                            </a>
+                        </figure>
+                        <svg stroke="#FF3636" stroke-width="5" viewBox="0 0 112 113"><path d="..." /></svg>
+                    </li>
+                    <li>
+                        <figure>
+                            <h2>حضور و غیاب</h2>
+                            <figcaption>بررسی وضعیت حضور کارکنان و ثبت غیبت‌ها.</figcaption>
+                            <a href="{% url 'system:manager_attendance' %}">
+                                <em>مدیریت حضور</em>
+                                <i>&#10095;&#10095;</i>
+                            </a>
+                        </figure>
+                        <svg stroke="#FF3636" stroke-width="5" viewBox="0 0 112 113"><path d="..." /></svg>
+                    </li>
+
+                    <li>
+                        <figure>
+                            <h2>موجودی انبار</h2>
+                            <figcaption>بررسی موجودی کالاها و وضعیت انبار.</figcaption>
+                            <a href="{% url 'system:inventory_list' %}">
+                                <em>مشاهده موجودی</em>
+                                <i>&#10095;&#10095;</i>
+                            </a>
+                        </figure>
+                        <svg stroke="#FF3636" stroke-width="5" viewBox="0 0 112 113"><path d="..." /></svg>
+                    </li>
+
+                </ul>
+            </section>
+        </section>
+    </article>
+</body>
+</html>

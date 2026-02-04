@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>داشبورد کارمند</title>
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+<body>
+    <article>
+        <section class="sectionWrapper">
+            <section id="_boxes">
+                <ul>
+                    <li>
+                        <figure>
+                            <h2>ثبت حضور</h2>
+                            <figcaption>ثبت وضعیت حضور روزانه توسط کارمند.</figcaption>
+                            <a href="{% url 'system:attendance_create' %}">
+                                <em>ثبت حضور</em>
+                                <i>&#10095;&#10095;</i>
+                            </a>
+                        </figure>
+                        <svg stroke="#3F9F47" stroke-width="5" viewBox="0 0 108 108"><path d="..." /></svg>
+                    </li>
+                    <li>
+                        <figure>
+                            <h2>ثبت خرید چندگانه</h2>
+                            <figcaption>افزودن چند کالا به فاکتور خرید در یک مرحله.</figcaption>
+                            <a href="{% url 'system:multi_purchase_create' %}">
+                                <em>ثبت خرید</em>
+                                <i>&#10095;&#10095;</i>
+                            </a>
+                        </figure>
+                        <svg stroke="#00A9FF" stroke-width="5" viewBox="0 0 108 108"><path d="..." /></svg>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </article>
+</body>
+</html>

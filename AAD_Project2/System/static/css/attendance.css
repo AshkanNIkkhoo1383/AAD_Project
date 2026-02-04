@@ -1,0 +1,72 @@
+body {
+    font-family: "IRANSans", sans-serif;
+    background: #f4f4f4;
+    direction: rtl;
+    text-align: center;
+}
+
+.container {
+    width: 400px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+label {
+    display: block;
+    text-align: right;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 48%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-in {
+    background: #28a745;
+}
+
+    .btn-in:hover {
+        background: #1e7e34;
+    }
+
+.btn-out {
+    background: #dc3545;
+}
+
+    .btn-out:hover {
+        background: #b21f2d;
+    }
+
+.message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
+}

@@ -67,6 +67,9 @@
     <Folder Include="app\templates\app\" />
     <Folder Include="AAD_Project2\" />
     <Folder Include="media\" />
+    <Folder Include="media\creditor\" />
+    <Folder Include="media\employees\" />
+    <Folder Include="media\products\" />
     <Folder Include="System\" />
     <Folder Include="System\migrations\" />
     <Folder Include="System\static\" />
@@ -105,13 +108,35 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="System\static\css\attendance.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="System\static\css\index.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="System\static\css\index2.css" />
     <Content Include="System\static\css\inventory.css" />
     <Content Include="System\static\css\login.css" />
+    <Content Include="System\static\css\menu.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="System\static\css\product_detail.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="System\static\menu.css" />
+    <Content Include="System\templates\attendance_form.html" />
+    <Content Include="System\templates\debt_list.html" />
+    <Content Include="System\templates\debt_update.html" />
+    <Content Include="System\templates\employee_dashboard.html" />
     <Content Include="System\templates\inventory_list.html" />
     <Content Include="System\templates\login.html" />
+    <Content Include="System\templates\manager_attendance.html" />
     <Content Include="System\templates\multi_purchase_create.html" />
     <Content Include="System\templates\product_detail.html" />
+    <Content Include="System\templates\profit_report.html" />
     <Content Include="System\templates\purchase_invoice.html" />
+    <Content Include="System\templates\salary_report.html" />
+    <Content Include="System\templates\storemanager_dashboard.html" />
     <Content Include="System\templates\System\index.html" />
   </ItemGroup>
   <ItemGroup>
